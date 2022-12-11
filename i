@@ -1,22 +1,22 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="1" tvg-name="CCTV1" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV1.png" group-title="央视节目",CCTV-1
-http://223.110.240.226:6610/cntv/live1/HD-12000k-1080P-cctv1/HD-12000k-1080P-cctv1
+http://223.110.240.226:6610/cntv/live1/HD-8000k-1080P-cctv1/HD-8000k-1080P-cctv1
 #EXTINF:-1 tvg-id="2" tvg-name="CCTV2" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV2.png" group-title="央视节目",CCTV-2
-http://223.110.240.226:6610/cntv/live1/HD-12000k-1080P-cctv2/HD-12000k-1080P-cctv2
+http://223.110.240.226:6610/cntv/live1/HD-8000k-1080P-cctv2/HD-8000k-1080P-cctv2
 #EXTINF:-1 tvg-id="3" tvg-name="CCTV3" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV3.png" group-title="央视节目",CCTV-3
-http://223.110.240.226:6610/cntv/live1/HD-12000k-1080P-cctv3/HD-12000k-1080P-cctv3
+http://223.110.240.226:6610/cntv/live1/HD-8000k-1080P-cctv3/HD-8000k-1080P-cctv3
 #EXTINF:-1 tvg-id="4" tvg-name="CCTV4" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV4.png" group-title="央视节目",CCTV-4
-http://223.110.240.226:6610/cntv/live1/HD-12000k-1080P-cctv4/HD-12000k-1080P-cctv4
+http://223.110.240.226:6610/cntv/live1/HD-8000k-1080P-cctv4/HD-8000k-1080P-cctv4
 #EXTINF:-1 tvg-id="5" tvg-name="CCTV5" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV5.png" group-title="央视节目",CCTV-5
-http://223.110.240.226:6610/cntv/live1/HD-12000k-1080P-cctv5/HD-12000k-1080P-cctv5
+http://223.110.240.226:6610/cntv/live1/HD-8000k-1080P-cctv5/HD-8000k-1080P-cctv5
 #EXTINF:-1 tvg-id="6" tvg-name="CCTV5+" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV5+.png" group-title="央视节目",CCTV-5+
 http://39.134.71.75/ott.js.chinamobile.com/TVOD/3/224/3221228176/index.m3u8
 #EXTINF:-1 tvg-id="7" tvg-name="CCTV6" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV6.png" group-title="央视节目",CCTV-6
-http://39.134.71.75/ott.js.chinamobile.com/TVOD/3/224/3221228123/index.m3u8
+http://223.110.240.226:6610/cntv/live1/HD-8000k-1080P-cctv6/HD-8000k-1080P-cctv6
 #EXTINF:-1 tvg-id="8" tvg-name="CCTV7" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV7.png" group-title="央视节目",CCTV-7
-http://223.110.240.226:6610/cntv/live1/HD-12000k-1080P-cctv7/HD-12000k-1080P-cctv7
+http://223.110.240.226:6610/cntv/live1/HD-8000k-1080P-cctv7/HD-8000k-1080P-cctv7
 #EXTINF:-1 tvg-id="9" tvg-name="CCTV8" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV8.png" group-title="央视节目",CCTV-8
-http://39.134.71.75/ott.js.chinamobile.com/TVOD/3/224/3221227473/index.m3u8
+http://223.110.240.226:6610/cntv/live1/HD-8000k-1080P-cctv8/HD-8000k-1080P-cctv8
 #EXTINF:-1 tvg-id="10" tvg-name="CCTV9" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV9.png" group-title="央视节目",CCTV-9
 http://223.110.240.226:6610/cntv/live1/HD-8000k-1080P-cctv9/HD-8000k-1080P-cctv9
 #EXTINF:-1 tvg-id="11" tvg-name="CCTV10" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV10.png" group-title="央视节目",CCTV-10
@@ -48,13 +48,13 @@ http://223.110.241.139:6610/gitv/live1/G_CETV-3/G_CETV-3/
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="央视节目",CETV-4
 http://223.110.241.139:6610/gitv/live1/G_CETV-4/G_CETV-4/
 #EXTINF:-1 tvg-id="29" tvg-name="江苏卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/jiangsu.png" group-title="地方卫视",江苏卫视
-http://223.110.240.220:6610/cntv/live1/HD-12000k-1080P-jiangsustv/HD-12000k-1080P-jiangsustv/
+http://223.110.240.220:6610/cntv/live1/HD-8000k-1080P-jiangsustv/HD-8000k-1080P-jiangsustv/
 #EXTINF:-1 tvg-id="27" tvg-name="湖南卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/hunan.png" group-title="地方卫视",湖南卫视
-http://223.110.240.226:6610/cntv/live1/HD-12000k-1080P-hunanstv/HD-12000k-1080P-hunanstv
+http://223.110.240.226:6610/cntv/live1/HD-8000k-1080P-hunanstv/HD-8000k-1080P-hunanstv
 #EXTINF:-1 tvg-id="28" tvg-name="浙江卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/zhejiang.png" group-title="地方卫视",浙江卫视
-http://223.110.240.226:6610/cntv/live1/HD-12000k-1080P-zhejiangstv/HD-12000k-1080P-zhejiangstv
+http://223.110.240.226:6610/cntv/live1/HD-8000k-1080P-zhejiangstv/HD-8000k-1080P-zhejiangstv
 #EXTINF:-1 tvg-id="31" tvg-name="东方卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/dongfang.png" group-title="地方卫视",东方卫视
-http://223.110.240.226:6610/cntv/live1/HD-12000k-1080P-dongfangstv/HD-12000k-1080P-dongfangstv
+http://223.110.240.226:6610/cntv/live1/HD-8000k-1080P-dongfangstv/HD-8000k-1080P-dongfangstv
 #EXTINF:-1 tvg-id="30" tvg-name="北京卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/beijing.png" group-title="地方卫视",北京卫视
 http://223.110.241.139:6610/gitv/live1/G_BEIJING-CQ/G_BEIJING-CQ/
 #EXTINF:-1 tvg-id="38" tvg-name="山东卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/shandong.png" group-title="地方卫视",山东卫视
