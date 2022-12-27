@@ -37,8 +37,6 @@ http://223.110.235.9/ott.js.chinamobile.com/PLTV/3/224/3221228168/index.m3u8
 http://223.110.235.24/ott.js.chinamobile.com/PLTV/3/224/3221228127/index.m3u8
 #EXTINF:-1 tvg-id="18" tvg-name="CCTV17" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV17.png" group-title="央视节目",CCTV-17
 http://223.110.235.10/ott.js.chinamobile.com/PLTV/3/224/3221227726/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="央视节目",CCTV-4K
-http://39.134.71.75/ott.js.chinamobile.com/TVOD/3/224/3221228165/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="央视节目",CCTV-高尔夫网球
 http://223.110.236.24/ott.js.chinamobile.com/PLTV/3/224/3221228138/index.m3u8
 #EXTINF:-1 tvg-id="20" tvg-name="CGTN" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/cgtn.png" group-title="央视节目",CGTN
@@ -121,8 +119,6 @@ http://223.110.241.139:6610/gitv/live1/G_JSYS/G_JSYS/
 http://223.110.241.139:6610/gitv/live1/G_JSTY/G_JSTY/
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="江苏节目",江苏综艺
 http://223.110.241.139:6610/gitv/live1/G_JSZY/G_JSZY/
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="江苏节目",好享购
-http://223.110.241.139:6610/gitv/live1/G_HAOXIANG/G_HAOXIANG/
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="江苏节目",南京新闻综合
 http://223.110.241.139:6610/gitv/live1/G_NJXW/G_NJXW/
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="江苏节目",南京科教
@@ -173,5 +169,3 @@ http://223.110.241.139:6610/gitv/live1/G_ZHENGJUANZX/G_ZHENGJUANZX/
 http://223.110.241.139:6610/gitv/live1/G_ZHONGGUOJT/G_ZHONGGUOJT/
 #EXTINF:-1 tvg-id="6590" tvg-name="国学" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/SHUOWENJIEZI.jpg" group-title="其他节目",国学频道
 http://223.110.241.139:6610/gitv/live1/G_GUOXUE/G_GUOXUE/
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="其他节目",篮球
-http://223.110.241.139:6610/gitv/live1/G_LANQIU/G_LANQIU/
