@@ -1,1 +1,1 @@
-vless://77c3c489-eeb2-446b-bd7a-10af8378e911@173.82.238.124:10010?encryption=none&security=reality&flow=xtls-rprx-vision&type=tcp&sni=www.ebay.com&pbk=3hycWMhFZ38r9eZ6SBkaQrEYW1rMOPxmBYnug5vZJAg&fp=ios#233boy-reality-173.82.238.124
+vless://31491c91-f2af-49e1-8097-74f1c785f899@173.82.238.124:8041?encryption=none&security=reality&flow=xtls-rprx-vision&type=tcp&sni=aws.amazon.com&pbk=Z3lNssFJIyWM20RyICfrtP9pFfW-U4tbjBDOCiPq7To&fp=ios#233boy-reality-173.82.238.124
