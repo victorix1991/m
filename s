@@ -1,1 +1,1 @@
-vless://31491c91-f2af-49e1-8097-74f1c785f899@173.82.238.124:8041?encryption=none&security=reality&flow=xtls-rprx-vision&type=tcp&sni=aws.amazon.com&pbk=Z3lNssFJIyWM20RyICfrtP9pFfW-U4tbjBDOCiPq7To&fp=ios#233boy-reality-173.82.238.124
+vmess://eyJ2IjoyLCJwcyI6IjIzM2JveS1rY3AtMTczLjgyLjIzOC4xMjQiLCJhZGQiOiIxNzMuODIuMjM4LjEyNCIsInBvcnQiOiI4MDAzIiwiaWQiOiJkNzc2NWUxYi1mNWE2LTRmYjMtYWI2OC0xZjdlZDJhNzU4MzIiLCJhaWQiOiIwIiwibmV0Ijoia2NwIiwidHlwZSI6IndlY2hhdC12aWRlbyIsInBhdGgiOiJkNzc2NWUxYi1mNWE2LTRmYjMtYWI2OC0xZjdlZDJhNzU4MzIifQ==
