@@ -8,7 +8,7 @@ global-client-fingerprint: chrome
 dns:
   enable: true
   listen: :53
-  ipv6: true
+  ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   default-nameserver: 
@@ -29,14 +29,14 @@ dns:
 
 # 当前 13 个主流协议节点配置模版，按需求修改，如不需要使用某协议节点，则无需删除，确保代理分流中没有该节点即可
 proxies:
-- name: hysteria                                  # 可以自定义节点名称
+- name: hysteria                                   # 可以自定义节点名称
   type: hysteria
-  server: 66.103.196.9                                  # 服务器本地 IP
-  port: 8281                                      # 自定义端口，如使用端口跳跃则改为 ports: 1000,2000-3000
-  auth-str: XH3236693                                 # 自定义认证密码
+  server: 66.103.196.9                             # 服务器本地 IP
+  port: 8281                                       # 自定义端口，如使用端口跳跃则改为 ports: 1000,2000-3000
+  auth-str: XH3236693                              # 自定义认证密码
   alpn:
     - h3
-  protocol: wechat-video                                    # 自定义协议：udp / wechat-video / faketcp
+  protocol: wechat-video                           # 自定义协议：udp / wechat-video / faketcp
   up: 20                                           # 自定义带宽上传限制
   down: 100                                        # 自定义带宽下载限制
   sni: www.bing.com                                # SNI 域名或自签证书的三方域名
@@ -45,10 +45,10 @@ proxies:
 
 - name: hysteria2                                  # 节点名称
   type: hysteria2
-  server: 142.171.85.110                              # 服务器 IP
-  port: 58951                                     # 节点端口，如使用端口跳跃则改为 ports: 2000-3000/1000
+  server: 142.171.85.110                           # 服务器 IP
+  port: 58951                                      # 节点端口，如使用端口跳跃则改为 ports: 2000-3000/1000
   password: 9819d1d5                               # 节点认证密码
-  sni: www.bing.com                            # SNI 域名或自签证书的三方域名
+  sni: www.bing.com                                # SNI 域名或自签证书的三方域名
   skip-cert-verify: true                           # 使用自签证书请保持此处为 true，如为 CA 证书建议修改为 false
 
 # 分流组可自行创建或添加，proxies 参数下的节点名称，按需求自行增减，确保出现的节点名称在代理协议中可查找
