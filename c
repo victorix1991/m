@@ -29,7 +29,7 @@ dns:
 
 # 当前 13 个主流协议节点配置模版，按需求修改，如不需要使用某协议节点，则无需删除，确保代理分流中没有该节点即可
 proxies:
-- name: hysteria                                  # 节点名称
+- name: LAXMC                                  # 节点名称
   type: hysteria2
   server: 66.103.196.9                          # 服务器 IP
   port: 50224                                      # 节点端口，如使用端口跳跃则改为 ports: 2000-3000/1000
@@ -37,7 +37,7 @@ proxies:
   sni: www.bing.com                                # SNI 域名或自签证书的三方域名
   skip-cert-verify: true                           # 使用自签证书请保持此处为 true，如为 CA 证书建议修改为 false
 
-- name: hysteria2                                  # 节点名称
+- name: LAXMD                                  # 节点名称
   type: hysteria2
   server: 142.171.85.110                           # 服务器 IP
   port: 58951                                      # 节点端口，如使用端口跳跃则改为 ports: 2000-3000/1000
@@ -52,8 +52,8 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: 300
   proxies:
-    - hysteria
-    - hysteria2
+    - LAXMC
+    - LAXMD
 
 - name: 自动选择
   type: url-test
@@ -61,8 +61,8 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
-    - hysteria
-    - hysteria2
+    - LAXMC
+    - LAXMD
     
 - name: 🌍选择代理
   type: select
@@ -70,8 +70,8 @@ proxy-groups:
     - 负载均衡                                            # 自定义添加的节点名称
     - 自动选择
     - DIRECT
-    - hysteria
-    - hysteria2
+    - LAXMC
+    - LAXMD
 
 # 代理规则可自行添加 
 rules:
