@@ -29,19 +29,13 @@ dns:
 
 # 当前 13 个主流协议节点配置模版，按需求修改，如不需要使用某协议节点，则无需删除，确保代理分流中没有该节点即可
 proxies:
-- name: hysteria                                   # 可以自定义节点名称
-  type: hysteria
-  server: 66.103.196.9                             # 服务器本地 IP
-  port: 8281                                       # 自定义端口，如使用端口跳跃则改为 ports: 1000,2000-3000
-  auth-str: XH3236693                              # 自定义认证密码
-  alpn:
-    - h3
-  protocol: wechat-video                           # 自定义协议：udp / wechat-video / faketcp
-  up: 20                                           # 自定义带宽上传限制
-  down: 100                                        # 自定义带宽下载限制
+- name: hysteria                                  # 节点名称
+  type: hysteria2
+  server: 66.103.196.9                          # 服务器 IP
+  port: 50224                                      # 节点端口，如使用端口跳跃则改为 ports: 2000-3000/1000
+  password: 84afe70e                               # 节点认证密码
   sni: www.bing.com                                # SNI 域名或自签证书的三方域名
   skip-cert-verify: true                           # 使用自签证书请保持此处为 true，如为 CA 证书建议修改为 false
-  fast-open: true
 
 - name: hysteria2                                  # 节点名称
   type: hysteria2
