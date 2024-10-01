@@ -33,7 +33,7 @@ proxies:
   type: hysteria2
   server: 66.103.196.9                          # 服务器 IP
   port: 36467                                      # 节点端口，如使用端口跳跃则改为 ports: 2000-3000/1000
-  password: 32e90b71                               # 节点认证密码
+  password: f5e2e5ab-46b0-4102-b0b3-db4469d32053                               # 节点认证密码
   alpn:
     - h3                                  # SNI 域名或自签证书的三方域名
   skip-cert-verify: true                           # 使用自签证书请保持此处为 true，如为 CA 证书建议修改为 false
