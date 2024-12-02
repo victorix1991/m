@@ -12,6 +12,7 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   default-nameserver: 
+    - 1.1.1.1
     - 223.5.5.5
     - 168.95.1.1
     - 8.8.8.8
