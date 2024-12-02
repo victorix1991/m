@@ -73,6 +73,9 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: 300
   proxies:
+  proxies:
+    - LAXMC-IPV6    
+    - LAXMD-IPV6    
     - LAXMC
     - LAXMD
 
@@ -82,6 +85,8 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
+    - LAXMC-IPV6    
+    - LAXMD-IPV6    
     - LAXMC
     - LAXMD
     
@@ -91,6 +96,8 @@ proxy-groups:
     - 负载均衡                                            # 自定义添加的节点名称
     - 自动选择
     - DIRECT
+    - LAXMC-IPV6    
+    - LAXMD-IPV6    
     - LAXMC
     - LAXMD
 
