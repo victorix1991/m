@@ -40,10 +40,11 @@ proxies:
 
 - name: LAXMD                                  # 节点名称
   type: hysteria2
-  server: 142.171.85.110                           # 服务器 IP
-  port: 58951                                      # 节点端口，如使用端口跳跃则改为 ports: 2000-3000/1000
-  password: 9819d1d5                               # 节点认证密码
-  sni: www.bing.com                                # SNI 域名或自签证书的三方域名
+  server: 142.171.85.110                          # 服务器 IP
+  port: 36467                                      # 节点端口，如使用端口跳跃则改为 ports: 2000-3000/1000
+  password: 91d79739-a963-45df-97ca-03bf563330e3                               # 节点认证密码
+  alpn:
+    - h3                                  # SNI 域名或自签证书的三方域名
   skip-cert-verify: true                           # 使用自签证书请保持此处为 true，如为 CA 证书建议修改为 false
 
 # 分流组可自行创建或添加，proxies 参数下的节点名称，按需求自行增减，确保出现的节点名称在代理协议中可查找
