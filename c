@@ -29,7 +29,7 @@ dns:
 
 # 当前 13 个主流协议节点配置模版，按需求修改，如不需要使用某协议节点，则无需删除，确保代理分流中没有该节点即可
 proxies:
-- name: LAXMC-IPV6                                  # 节点名称
+- name: LAXMCV6                                  # 节点名称
   type: hysteria2
   server: 2607:f130:0:12a::9                          # 服务器 IP
   port: 36467                                      # 节点端口，如使用端口跳跃则改为 ports: 2000-3000/1000
@@ -38,7 +38,7 @@ proxies:
     - h3                                  # SNI 域名或自签证书的三方域名
   skip-cert-verify: true                           # 使用自签证书请保持此处为 true，如为 CA 证书建议修改为 false
 
-- name: LAXMD-IPV6                                  # 节点名称
+- name: LAXMDV6                                  # 节点名称
   type: hysteria2
   server: 2607:f130:0000:016d:0000:0000:8f8d:0c91                          # 服务器 IP
   port: 36467                                      # 节点端口，如使用端口跳跃则改为 ports: 2000-3000/1000
@@ -56,7 +56,7 @@ proxies:
     - h3                                  # SNI 域名或自签证书的三方域名
   skip-cert-verify: true                           # 使用自签证书请保持此处为 true，如为 CA 证书建议修改为 false
 
-- name: LAXMC                                  # 节点名称
+- name: LAXMD                                  # 节点名称
   type: hysteria2
   server: 142.171.85.110                          # 服务器 IP
   port: 36467                                      # 节点端口，如使用端口跳跃则改为 ports: 2000-3000/1000
@@ -72,8 +72,8 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: 300
   proxies:
-    - LAXMC-IPV6
-    - LAXMD-IPV6
+    - LAXMCV6
+    - LAXMDV6
     - LAXMC
     - LAXMD
 
@@ -83,8 +83,8 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
-    - LAXMC-IPV6
-    - LAXMD-IPV6
+    - LAXMCV6
+    - LAXMDV6
     - LAXMC
     - LAXMD
     
@@ -94,8 +94,8 @@ proxy-groups:
     - 负载均衡                                            # 自定义添加的节点名称
     - 自动选择
     - DIRECT
-    - LAXMC-IPV6
-    - LAXMD-IPV6
+    - LAXMCV6
+    - LAXMDV6
     - LAXMC
     - LAXMD
 
