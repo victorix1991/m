@@ -14,29 +14,29 @@ http://ott.mobaibox.com/PLTV/3/224/3221228176/index.m3u8
 #EXTINF:-1 group-title="央视频道",CCTV-6
 http://ott.mobaibox.com/PLTV/3/224/3221227505/index.m3u8
 #EXTINF:-1 group-title="央视频道",CCTV-7
-http://ott.mobaibox.com/PLTV/3/224/3221228283/index.m3u8
+http://ott.mobaibox.com/PLTV/3/224/3221227642/index.m3u8
 #EXTINF:-1 group-title="央视频道",CCTV-8
 http://ott.mobaibox.com/PLTV/3/224/3221228194/index.m3u8
 #EXTINF:-1 group-title="央视频道",CCTV-9
-http://ott.mobaibox.com/PLTV/3/224/3221228303/index.m3u8
+http://ott.mobaibox.com/PLTV/3/224/3221227704/index.m3u8
 #EXTINF:-1 group-title="央视频道",CCTV-10
-http://ott.mobaibox.com/PLTV/3/224/3221228286/index.m3u8
+http://ott.mobaibox.com/PLTV/3/224/3221227717/index.m3u8
 #EXTINF:-1 group-title="央视频道",CCTV-11
-http://ott.mobaibox.com/PLTV/3/224/3221228289/index.m3u8
+http://ott.mobaibox.com/PLTV/3/224/3221227720/index.m3u8
 #EXTINF:-1 group-title="央视频道",CCTV-12
-http://ott.mobaibox.com/PLTV/3/224/3221228401/index.m3u8
+http://ott.mobaibox.com/PLTV/3/224/3221227655/index.m3u8
 #EXTINF:-1 group-title="央视频道",CCTV-13
-http://ott.mobaibox.com/PLTV/3/224/3221227387/index.m3u8
+http://ott.mobaibox.com/PLTV/3/224/3221228324/index.m3u8
 #EXTINF:-1 group-title="央视频道",CCTV-14
-http://ott.mobaibox.com/PLTV/3/224/3221228292/index.m3u8
+http://ott.mobaibox.com/PLTV/3/224/3221227656/index.m3u8
 #EXTINF:-1 group-title="央视频道",CCTV-15
-http://ott.mobaibox.com/PLTV/3/224/3221228404/index.m3u8
-#EXTINF:-1 group-title="央视频道",CCTV-16 SDR
+http://ott.mobaibox.com/PLTV/3/224/3221227723/index.m3u8
+#EXTINF:-1 group-title="央视频道",CCTV-16
 http://ott.mobaibox.com/PLTV/3/224/3221228168/index.m3u8
-#EXTINF:-1 group-title="央视频道",CCTV-16 HDR
-http://ott.mobaibox.com/PLTV/3/224/3221228127/index.m3u8
 #EXTINF:-1 group-title="央视频道",CCTV-17
-http://ott.mobaibox.com/PLTV/3/224/3221228407/index.m3u8
+http://ott.mobaibox.com/PLTV/3/224/3221227726/index.m3u8
+#EXTINF:-1 group-title="央视频道",CCTV-8K
+http://ott.mobaibox.com/PLTV/3/224/3221228165/index.m3u8
 #EXTINF:-1 group-title="央视频道",CCTV-高尔夫网球
 http://ott.mobaibox.com/PLTV/3/224/3221228138/index.m3u8
 #EXTINF:-1 group-title="央视频道",CGTN
@@ -92,7 +92,7 @@ http://ott.mobaibox.com/PLTV/3/224/3221228136/index.m3u8
 #EXTINF:-1 group-title="高清综艺",测试8K
 http://ott.mobaibox.com/PLTV/3/224/3221228132/index.m3u8
 #EXTINF:-1 group-title="高清综艺",纯享4K
-http://ott.mobaibox.com/PLTV/3/224/3221228165/index.m3u8
+http://ott.mobaibox.com/PLTV/3/224/3221228242/index.m3u8
 #EXTINF:-1 group-title="高清综艺",修复4K
 http://223.110.236.19/ott.js.chinamobile.com/PLTV/3/224/3221228141/index.m3u8
 #EXTINF:-1 group-title="高清综艺",欢笑剧场
