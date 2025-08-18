@@ -1,0 +1,13 @@
+[
+  {
+    "tag": "http gcore.jsdelivr.net/gh/victorix1991/m@main/s:443",
+    "type": "http",
+    "server": "gcore.jsdelivr.net/gh/victorix1991/m@main/s",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "gcore.jsdelivr.net/gh/victorix1991/m@main/s",
+      "insecure": false
+    }
+  }
+]
