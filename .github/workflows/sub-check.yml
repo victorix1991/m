@@ -1,0 +1,60 @@
+name: sub-check
+# Muse 2026-11-23: validate subscription files x (L×Box share links) and b (SFA sing-box config)
+# on every change. On failure restore the newest earlier version that passes and report to the status hub.
+# Logs never contain file contents (public repo, node passwords inside).
+on:
+  push:
+    paths: [x, b]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: sub-check-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install sing-box 1.14.4
+        run: |
+          curl -fsSL -o /tmp/sb.tgz https://github.com/SagerNet/sing-box/releases/download/v1.14.4/sing-box-1.14.4-linux-amd64.tar.gz
+          tar -xzf /tmp/sb.tgz -C /tmp && sudo install /tmp/sing-box-1.14.4-linux-amd64/sing-box /usr/local/bin/sing-box
+          sing-box version | head -1
+      - name: Check x and b
+        id: chk
+        run: |
+          set +e
+          chk_x() { python3 .github/muse/check_x.py "$1" /tmp/c.json && sing-box check -c /tmp/c.json >/dev/null 2>&1; r=$?; rm -f /tmp/c.json; return $r; }
+          chk_b() { python3 -c 'import json,sys; c=json.load(open(sys.argv[1])); assert any(o.get("type") in ("hysteria2","shadowsocks") for o in c["outbounds"])' "$1" >/dev/null 2>&1 && sing-box check -c "$1" >/dev/null 2>&1; }
+          git config user.name "muse-sub-check"; git config user.email "actions@users.noreply.github.com"
+          RES=ok; NOTE=""
+          for f in x b; do
+            [ -f "$f" ] || { NOTE="$NOTE $f:missing"; continue; }
+            if chk_$f "$f"; then echo "$f OK"; NOTE="$NOTE $f:ok"; continue; fi
+            RES=fail; NOTE="$NOTE $f:bad"; echo "$f invalid, looking for last good version"
+            for h in $(git log --format=%H -n 20 HEAD~1 -- "$f"); do
+              git show "$h:$f" > /tmp/prev 2>/dev/null || continue
+              if chk_$f /tmp/prev; then
+                cp /tmp/prev "$f"
+                git commit -qm "sub-check: restore last good $f (${h:0:7})" -- "$f" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && NOTE="$NOTE(restored ${h:0:7})"
+                echo "$f restored ${h:0:7}"; break
+              fi
+            done
+            rm -f /tmp/prev
+          done
+          echo "result=$RES" >> "$GITHUB_OUTPUT"; echo "note=$NOTE" >> "$GITHUB_OUTPUT"
+          [ "$RES" = ok ]
+      - name: Report to status hub
+        if: ${{ always() }}
+        continue-on-error: true
+        env:
+          RK: ${{ secrets.RK_GH }}
+          R: ${{ steps.chk.outputs.result }}
+          NOTE: ${{ steps.chk.outputs.note }}
+        run: |
+          [ "$R" = ok ] || R=fail
+          node .github/muse/hub_report.js sub-check "$R" "${GITHUB_REF_NAME} ${GITHUB_SHA:0:7}${NOTE}"
