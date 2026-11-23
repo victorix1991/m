@@ -1,0 +1,54 @@
+name: x-check
+# Muse 2026-11-23: validate the L×Box subscription `x` on every change.
+# On failure restore the newest earlier version that passes, and report to the status hub.
+# Logs never contain the file contents (public repo).
+on:
+  push:
+    paths: [x]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: x-check-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install sing-box 1.14.4
+        run: |
+          curl -fsSL -o /tmp/sb.tgz https://github.com/SagerNet/sing-box/releases/download/v1.14.4/sing-box-1.14.4-linux-amd64.tar.gz
+          tar -xzf /tmp/sb.tgz -C /tmp && sudo install /tmp/sing-box-1.14.4-linux-amd64/sing-box /usr/local/bin/sing-box
+          sing-box version | head -1
+      - name: Check x
+        id: chk
+        run: |
+          set +e
+          chk() { python3 .github/muse/check_x.py "$1" /tmp/x.json >/tmp/out.txt 2>&1 && sing-box check -c /tmp/x.json >/dev/null 2>&1; r=$?; cat /tmp/out.txt; rm -f /tmp/x.json; return $r; }
+          if chk x; then echo "result=ok" >> "$GITHUB_OUTPUT"; echo "x OK"; exit 0; fi
+          echo "result=fail" >> "$GITHUB_OUTPUT"
+          echo "x invalid, looking for last good version"
+          for h in $(git log --format=%H -n 20 HEAD~1 -- x); do
+            git show "$h:x" > /tmp/x.prev 2>/dev/null || continue
+            if chk /tmp/x.prev; then
+              cp /tmp/x.prev x
+              git config user.name "muse-x-check"; git config user.email "actions@users.noreply.github.com"
+              git commit -qm "x-check: restore last good x (${h:0:7})" -- x && git push -q origin "HEAD:${GITHUB_REF_NAME}" && echo "restored=${h:0:7}" >> "$GITHUB_OUTPUT"
+              echo "restored ${h:0:7}"; break
+            fi
+          done
+          rm -f /tmp/x.prev
+          exit 1
+      - name: Report to status hub
+        if: ${{ always() }}
+        continue-on-error: true
+        env:
+          RK: ${{ secrets.RK_GH }}
+        run: |
+          R="${{ steps.chk.outputs.result }}"; [ "$R" = ok ] || R=fail
+          N="${GITHUB_REF_NAME} ${GITHUB_SHA:0:7}"; [ -n "${{ steps.chk.outputs.restored }}" ] && N="$N restored ${{ steps.chk.outputs.restored }}"
+          node .github/muse/hub_report.js x-check "$R" "$N"
