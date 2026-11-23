@@ -13,6 +13,8 @@ import base64, json, socket, sys, urllib.parse
 IP_MAP = {
     "speedtest.nea.kdns.fr": "148.135.121.38",     # CloudCone hy2
     "speedtest-tc.nea.kdns.fr": "49.234.200.146",  # Tencent SS
+    "speedtest.xlat.kdns.fr": "148.135.121.38",    # CloudCone hy2 (moved 2026-11-23)
+    "speedtest-tc.xlat.kdns.fr": "49.234.200.146", # Tencent SS (moved 2026-11-23)
 }
 # hy2 cert SHA256 (hex, as in s/v2rayNG) -> SPKI SHA256 base64 (as in x/L×Box)
 PIN_MAP = {
