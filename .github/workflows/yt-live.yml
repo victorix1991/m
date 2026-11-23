@@ -1,5 +1,5 @@
 name: yt-live
-# Muse 2026-11-23: build the YouTube live m3u here (same code as the youtube Worker, generated file)
+# Muse 2026-11-23 (re-register schedule 15:30): build the YouTube live m3u here (same code as the youtube Worker, generated file)
 # and push it to yt.xlat.kdns.fr. The Worker keeps building itself whenever this copy is > 30 min old.
 on:
   schedule:
