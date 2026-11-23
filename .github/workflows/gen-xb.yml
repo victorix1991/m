@@ -1,0 +1,64 @@
+name: gen-xb
+# Muse 2026-11-23 (user-approved): when the user changes s (v2rayNG subscription, hand-maintained, never modified here),
+# regenerate x (L×Box: direct IP + SPKI pin, no port hopping) and b (SFA sing-box config), validate both,
+# commit only if valid and changed. Invalid -> no commit, report fail to the status hub.
+# Commits use GITHUB_TOKEN, which does not trigger workflows, so no loop. Logs never contain file contents.
+on:
+  push:
+    paths: [s]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: gen-xb-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install sing-box 1.14.4
+        run: |
+          curl -fsSL -o /tmp/sb.tgz https://github.com/SagerNet/sing-box/releases/download/v1.14.4/sing-box-1.14.4-linux-amd64.tar.gz
+          tar -xzf /tmp/sb.tgz -C /tmp && sudo install /tmp/sing-box-1.14.4-linux-amd64/sing-box /usr/local/bin/sing-box
+          sing-box version | head -1
+      - name: Generate and validate
+        id: gen
+        run: |
+          set +e
+          RES=fail; NOTE=""
+          python3 .github/muse/gen_xb.py s .github/muse/b_template.json /tmp/x.new /tmp/b.new >/tmp/gen.out 2>/dev/null; GRC=$?; GO=$(tail -1 /tmp/gen.out | cut -c1-120); rm -f /tmp/gen.out
+          if [ "$GRC" = 0 ] && [ -s /tmp/x.new ]; then
+            if python3 .github/muse/check_x.py /tmp/x.new /tmp/c.json && sing-box check -c /tmp/c.json >/dev/null 2>&1 \
+               && sing-box check -c /tmp/b.new >/dev/null 2>&1; then
+              CH=""
+              cmp -s /tmp/x.new x || { cp /tmp/x.new x; CH="$CH x"; }
+              cmp -s /tmp/b.new b || { cp /tmp/b.new b; CH="$CH b"; }
+              if [ -n "$CH" ]; then
+                git config user.name "muse-gen-xb"; git config user.email "actions@users.noreply.github.com"
+                git add x b && git commit -qm "gen-xb: regenerate${CH} from s ${GITHUB_SHA:0:7}" \
+                  && git push -q origin "HEAD:${GITHUB_REF_NAME}" && { RES=ok; NOTE="updated${CH}"; } || NOTE="push failed"
+              else
+                RES=ok; NOTE="no change"
+              fi
+            else
+              NOTE="generated config failed sing-box check, not committed"
+            fi
+          else
+            NOTE="${GO:-gen failed} - not committed"
+          fi
+          rm -f /tmp/c.json /tmp/x.new /tmp/b.new
+          echo "$NOTE"
+          echo "result=$RES" >> "$GITHUB_OUTPUT"; echo "note=$NOTE" >> "$GITHUB_OUTPUT"
+          [ "$RES" = ok ]
+      - name: Report to status hub
+        if: ${{ always() }}
+        continue-on-error: true
+        env:
+          RK: ${{ secrets.RK_GH }}
+          R: ${{ steps.gen.outputs.result }}
+          NOTE: ${{ steps.gen.outputs.note }}
+        run: |
+          [ "$R" = ok ] || R=fail
+          node .github/muse/hub_report.js gen-xb "$R" "${GITHUB_REF_NAME} ${GITHUB_SHA:0:7} ${NOTE}"
