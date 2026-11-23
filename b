@@ -58,7 +58,7 @@
     },
     {
       "password": "5eb056cd-9d14-4942-b244-b8d3e4192d19",
-      "server": "speedtest.nea.kdns.fr",
+      "server": "speedtest.xlat.kdns.fr",
       "server_port": 40123,
       "tag": "直连线路",
       "tls": {
@@ -73,7 +73,7 @@
     {
       "method": "aes-256-gcm",
       "password": "6fb74183cc50974ebe9a3e95",
-      "server": "speedtest-tc.nea.kdns.fr",
+      "server": "speedtest-tc.xlat.kdns.fr",
       "server_port": 9773,
       "tag": "备用线路",
       "type": "shadowsocks"
