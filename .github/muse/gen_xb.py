@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Generate x (L×Box share links) and b (SFA sing-box config) from s (v2rayNG subscription).
+"""Generate x (L×Box share links) from s (v2rayNG subscription). b (SFA) dropped 2026-11-24 (user: 太不灵活).
 Muse 2026-11-23. s is read only, never written.
-Usage: gen_xb.py <s> <b_template.json> <out_x> <out_b>
+Usage: gen_xb.py <s> <out_x>
 Prints only counts / field names, NEVER contents (public repo logs). Exit 0 ok, 1 fail.
 Rules (user-approved):
 - x: direct IP + SPKI pin, no port hopping (L×Box backend untouched; only node changes propagate).
@@ -43,7 +43,7 @@ def ip_of(host):
         fail("cannot resolve a node host (not in IP_MAP)")
 
 
-s_path, tpl_path, out_x, out_b = sys.argv[1:5]
+s_path, out_x = sys.argv[1:3]
 try:
     txt = b64d(open(s_path, "rb").read())
 except Exception:
@@ -108,22 +108,6 @@ for i, l in enumerate(lines, 1):
         fail(f"link {i}: unsupported scheme for generator")
     tags.append(tag)
 
-tpl = json.load(open(tpl_path))
-outs = []
-for o in tpl["outbounds"]:
-    if o == "__NODES__":
-        outs.extend(nodes)
-    elif o.get("type") == "selector":
-        o = dict(o)
-        o["outbounds"] = list(tags)
-        o["default"] = tags[0]
-        outs.append(o)
-    else:
-        outs.append(o)
-tpl["outbounds"] = outs
-
 with open(out_x, "wb") as f:
     f.write(base64.b64encode(("\n".join(x_lines) + "\n").encode()))
-with open(out_b, "w") as f:
-    f.write(json.dumps(tpl, ensure_ascii=False, indent=2))
 print("gen-xb ok:", len(lines), "nodes", ",".join(kinds))

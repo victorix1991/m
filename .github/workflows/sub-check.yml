@@ -1,10 +1,10 @@
 name: sub-check
-# Muse 2026-11-23: validate subscription files x (L×Box share links) and b (SFA sing-box config)
+# Muse 2026-11-23: validate subscription file x (L×Box share links); b dropped 2026-11-24
 # on every change. On failure restore the newest earlier version that passes and report to the status hub.
 # Logs never contain file contents (public repo, node passwords inside).
 on:
   push:
-    paths: [x, b]
+    paths: [x]
   workflow_dispatch:
 permissions:
   contents: write
@@ -29,10 +29,9 @@ jobs:
         run: |
           set +e
           chk_x() { python3 .github/muse/check_x.py "$1" /tmp/c.json && sing-box check -c /tmp/c.json >/dev/null 2>&1; r=$?; rm -f /tmp/c.json; return $r; }
-          chk_b() { python3 -c 'import json,sys; c=json.load(open(sys.argv[1])); assert any(o.get("type") in ("hysteria2","shadowsocks") for o in c["outbounds"])' "$1" >/dev/null 2>&1 && sing-box check -c "$1" >/dev/null 2>&1 && bash .github/muse/run_b.sh "$1"; }
           git config user.name "muse-sub-check"; git config user.email "actions@users.noreply.github.com"
           RES=ok; NOTE=""
-          for f in x b; do
+          for f in x; do
             [ -f "$f" ] || { NOTE="$NOTE $f:missing"; continue; }
             if chk_$f "$f"; then echo "$f OK"; NOTE="$NOTE $f:ok"; continue; fi
             RES=fail; NOTE="$NOTE $f:bad"; echo "$f invalid, looking for last good version"
