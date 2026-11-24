@@ -31,7 +31,7 @@ jobs:
           python3 .github/muse/gen_xb.py s .github/muse/b_template.json /tmp/x.new /tmp/b.new >/tmp/gen.out 2>/dev/null; GRC=$?; GO=$(tail -1 /tmp/gen.out | cut -c1-120); rm -f /tmp/gen.out
           if [ "$GRC" = 0 ] && [ -s /tmp/x.new ]; then
             if python3 .github/muse/check_x.py /tmp/x.new /tmp/c.json && sing-box check -c /tmp/c.json >/dev/null 2>&1 \
-               && sing-box check -c /tmp/b.new >/dev/null 2>&1; then
+               && sing-box check -c /tmp/b.new >/dev/null 2>&1 && bash .github/muse/run_b.sh /tmp/b.new; then
               CH=""
               cmp -s /tmp/x.new x || { cp /tmp/x.new x; CH="$CH x"; }
               cmp -s /tmp/b.new b || { cp /tmp/b.new b; CH="$CH b"; }

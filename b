@@ -11,8 +11,7 @@
       {
         "type": "udp",
         "tag": "dns-direct",
-        "server": "223.5.5.5",
-        "detour": "direct"
+        "server": "223.5.5.5"
       },
       {
         "type": "https",
